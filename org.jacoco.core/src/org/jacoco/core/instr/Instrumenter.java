@@ -15,11 +15,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import java.util.zip.ZipOutputStream;
+import java.nio.file.Files;
+import java.util.function.BiConsumer;
+import java.util.zip.*;
 
 import org.jacoco.core.internal.ContentTypeDetector;
 import org.jacoco.core.internal.Pack200Streams;
@@ -146,6 +144,9 @@ public class Instrumenter {
 			throw instrumentError(name, e);
 		}
 	}
+	public byte[] instrument(final InputStream input) throws IOException {
+		return instrument(new ClassReader(input));
+	}
 
 	private IOException instrumentError(final String name,
 			final RuntimeException cause) {
@@ -202,13 +203,71 @@ public class Instrumenter {
 				continue;
 			}
 
-			zipout.putNextEntry(new ZipEntry(entryName));
-			if (!signatureRemover.filterEntry(entryName, zipin, zipout)) {
-				count += instrumentAll(zipin, zipout, name + "@" + entryName);
+			try {
+				zipout.putNextEntry(new ZipEntry(entryName));
+				if (!signatureRemover.filterEntry(entryName, zipin, zipout)) {
+					count += instrumentAll(zipin, zipout, name + "@" + entryName);
+				}
+
+			} catch (ZipException e) {
+				System.err.println(e);
+			} finally {
+				zipout.closeEntry();
 			}
-			zipout.closeEntry();
 		}
 		zipout.finish();
+		return count;
+	}
+
+	public int instrumentJar(ZipEntry e, final InputStream input,
+							 BiConsumer<ZipEntry,byte[]> eachInstrumented) throws IOException {
+		final ContentTypeDetector detector = new ContentTypeDetector(input);
+		InputStream is = detector.getInputStream();
+		switch (detector.getType()) {
+			case ContentTypeDetector.CLASSFILE:
+				eachInstrumented.accept(e, instrument(is));
+				return 1;
+			case ContentTypeDetector.ZIPFILE:
+				return instrumentJar(is, eachInstrumented);
+//			case ContentTypeDetector.GZFILE:
+//				return instrumentGzip(detector.getInputStream(), output, name);
+//			case ContentTypeDetector.PACK200FILE:
+//				return instrumentPack200(detector.getInputStream(), output, name);
+			default:
+				eachInstrumented.accept(e,  is.readAllBytes() );
+				return 0;
+		}
+	}
+
+	public int instrumentJar(final InputStream input,
+							 BiConsumer<ZipEntry, byte[]> instrumented) throws IOException {
+		final ZipInputStream zipin = new ZipInputStream(input);
+		//final ZipOutputStream zipout = new ZipOutputStream(output);
+		ZipEntry entry;
+		int count = 0;
+
+		SignatureRemover signatureRemover = this.signatureRemover;
+
+		while ((entry = zipin.getNextEntry()) != null) {
+			final String entryName = entry.getName();
+
+			if (signatureRemover.removeEntry(entryName)) {
+				continue;
+			}
+
+			try {
+				//zipout.putNextEntry(new ZipEntry(entryName));
+				//if (!signatureRemover.filterEntry(entryName, zipin, zipout)) {
+					count += instrumentJar(entry, zipin, instrumented);
+				//}
+
+			} catch (ZipException e) {
+				System.err.println(e);
+			} finally {
+				//zipout.closeEntry();
+			}
+		}
+		//zipout.finish();
 		return count;
 	}
 

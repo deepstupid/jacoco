@@ -81,7 +81,7 @@ public class SessionsPageTest extends PageTestBase {
 
 	@Test
 	public void testSessionListContent() throws Exception {
-		final List<SessionInfo> sessions = new ArrayList<SessionInfo>();
+		final List<SessionInfo> sessions = new ArrayList<>();
 		sessions.add(new SessionInfo("Session-A", 0, 0));
 		sessions.add(new SessionInfo("Session-B", 0, 0));
 		sessions.add(new SessionInfo("Session-C", 0, 0));
@@ -101,7 +101,7 @@ public class SessionsPageTest extends PageTestBase {
 
 	@Test
 	public void testExecutionDataContent() throws Exception {
-		final Collection<ExecutionData> data = new ArrayList<ExecutionData>();
+		final Collection<ExecutionData> data = new ArrayList<>();
 		data.add(new ExecutionData(0x1000, "ClassB", new boolean[0]));
 		data.add(new ExecutionData(0x1001, "ClassC", new boolean[0]));
 		data.add(new ExecutionData(0x1002, "ClassA", new boolean[0]));

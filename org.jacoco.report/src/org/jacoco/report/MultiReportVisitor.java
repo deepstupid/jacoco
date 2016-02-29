@@ -71,7 +71,7 @@ class MultiGroupVisitor implements IReportGroupVisitor {
 	}
 
 	public IReportGroupVisitor visitGroup(final String name) throws IOException {
-		final List<IReportGroupVisitor> children = new ArrayList<IReportGroupVisitor>();
+		final List<IReportGroupVisitor> children = new ArrayList<>();
 		for (final IReportGroupVisitor v : visitors) {
 			children.add(v.visitGroup(name));
 		}

@@ -199,7 +199,7 @@ public final class AgentOptions {
 	 * New instance with all values set to default.
 	 */
 	public AgentOptions() {
-		this.options = new HashMap<String, String>();
+		this.options = new HashMap<>();
 	}
 
 	/**

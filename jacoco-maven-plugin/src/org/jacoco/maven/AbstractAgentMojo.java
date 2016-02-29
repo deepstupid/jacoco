@@ -235,7 +235,7 @@ public abstract class AbstractAgentMojo extends AbstractJacocoMojo {
 	}
 
 	boolean isPropertyNameSpecified() {
-		return propertyName != null && !"".equals(propertyName);
+		return propertyName != null && !propertyName.isEmpty();
 	}
 
 	boolean isEclipseTestPluginPackaging() {

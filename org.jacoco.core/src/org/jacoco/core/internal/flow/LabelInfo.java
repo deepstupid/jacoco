@@ -88,7 +88,7 @@ public final class LabelInfo {
 	 */
 	public static boolean isMultiTarget(final Label label) {
 		final LabelInfo info = get(label);
-		return info == null ? false : info.multiTarget;
+		return info != null && info.multiTarget;
 	}
 
 	/**
@@ -103,7 +103,7 @@ public final class LabelInfo {
 	 */
 	public static boolean isSuccessor(final Label label) {
 		final LabelInfo info = get(label);
-		return info == null ? false : info.successor;
+		return info != null && info.successor;
 	}
 
 	/**
@@ -127,7 +127,7 @@ public final class LabelInfo {
 	 */
 	public static boolean isMethodInvocationLine(final Label label) {
 		final LabelInfo info = get(label);
-		return info == null ? false : info.methodInvocationLine;
+		return info != null && info.methodInvocationLine;
 	}
 
 	/**
@@ -187,7 +187,7 @@ public final class LabelInfo {
 	 */
 	public static boolean isDone(final Label label) {
 		final LabelInfo info = get(label);
-		return info == null ? false : info.done;
+		return (info != null) && info.done;
 	}
 
 	/**

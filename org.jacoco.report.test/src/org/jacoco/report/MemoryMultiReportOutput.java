@@ -33,9 +33,9 @@ import java.util.Set;
  */
 public class MemoryMultiReportOutput implements IMultiReportOutput {
 
-	private final Map<String, ByteArrayOutputStream> files = new HashMap<String, ByteArrayOutputStream>();
+	private final Map<String, ByteArrayOutputStream> files = new HashMap<>();
 
-	private final Set<String> open = new HashSet<String>();
+	private final Set<String> open = new HashSet<>();
 
 	private boolean closed = false;
 

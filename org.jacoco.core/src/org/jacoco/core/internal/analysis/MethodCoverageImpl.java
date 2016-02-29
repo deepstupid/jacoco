@@ -11,18 +11,22 @@
  *******************************************************************************/
 package org.jacoco.core.internal.analysis;
 
+import com.gs.collections.api.bag.MutableBag;
+import com.gs.collections.api.list.ImmutableList;
+import com.gs.collections.impl.bag.mutable.HashBag;
 import org.jacoco.core.analysis.ICounter;
 import org.jacoco.core.analysis.IMethodCoverage;
 
 /**
  * Implementation of {@link IMethodCoverage}.
  */
-public class MethodCoverageImpl extends SourceNodeImpl implements
+public final class MethodCoverageImpl extends SourceNodeImpl implements
 		IMethodCoverage {
 
 	private final String desc;
 
 	private final String signature;
+	private final MutableBag<ImmutableList> values = new HashBag();
 
 	/**
 	 * Creates a method coverage data object with the given parameters.
@@ -72,6 +76,12 @@ public class MethodCoverageImpl extends SourceNodeImpl implements
 
 	public String getSignature() {
 		return signature;
+	}
+
+
+	@Override
+	public MutableBag<ImmutableList> values() {
+		return values;
 	}
 
 }

@@ -232,7 +232,7 @@ public abstract class AbstractReportMojo extends AbstractMavenReport {
 	}
 
 	IReportVisitor createVisitor(final Locale locale) throws IOException {
-		final List<IReportVisitor> visitors = new ArrayList<IReportVisitor>();
+		final List<IReportVisitor> visitors = new ArrayList<>();
 		getOutputDirectoryFile().mkdirs();
 		final XMLFormatter xmlFormatter = new XMLFormatter();
 		xmlFormatter.setOutputEncoding(outputEncoding);
@@ -259,7 +259,7 @@ public abstract class AbstractReportMojo extends AbstractMavenReport {
 	}
 
 	List<File> getCompileSourceRoots() {
-		final List<File> result = new ArrayList<File>();
+		final List<File> result = new ArrayList<>();
 		for (final Object path : getProject().getCompileSourceRoots()) {
 			result.add(resolvePath((String) path));
 		}

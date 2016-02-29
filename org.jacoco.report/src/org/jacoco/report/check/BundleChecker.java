@@ -46,11 +46,11 @@ class BundleChecker {
 			final ILanguageNames names, final IViolationsOutput output) {
 		this.names = names;
 		this.output = output;
-		this.bundleRules = new ArrayList<Rule>();
-		this.packageRules = new ArrayList<Rule>();
-		this.classRules = new ArrayList<Rule>();
-		this.sourceFileRules = new ArrayList<Rule>();
-		this.methodRules = new ArrayList<Rule>();
+		this.bundleRules = new ArrayList<>();
+		this.packageRules = new ArrayList<>();
+		this.classRules = new ArrayList<>();
+		this.sourceFileRules = new ArrayList<>();
+		this.methodRules = new ArrayList<>();
 		for (final Rule rule : rules) {
 			switch (rule.getElement()) {
 			case BUNDLE:

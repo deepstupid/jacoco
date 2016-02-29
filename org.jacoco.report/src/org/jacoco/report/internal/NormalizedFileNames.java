@@ -45,9 +45,9 @@ class NormalizedFileNames {
 		}
 	}
 
-	private final Map<String, String> mapping = new HashMap<String, String>();
+	private final Map<String, String> mapping = new HashMap<>();
 
-	private final Set<String> usedNames = new HashSet<String>();
+	private final Set<String> usedNames = new HashSet<>();
 
 	public String getFileName(final String id) {
 		String name = mapping.get(id);

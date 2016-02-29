@@ -69,7 +69,7 @@ class MethodInstrumenter extends MethodProbesVisitor {
 		}
 	}
 
-	private int getInverted(final int opcode) {
+	private static int getInverted(final int opcode) {
 		switch (opcode) {
 		case Opcodes.IFEQ:
 			return Opcodes.IFNE;
@@ -135,7 +135,7 @@ class MethodInstrumenter extends MethodProbesVisitor {
 		insertIntermediateProbes(dflt, labels, frame);
 	}
 
-	private Label[] createIntermediates(final Label[] labels) {
+	private static Label[] createIntermediates(final Label[] labels) {
 		final Label[] intermediates = new Label[labels.length];
 		for (int i = 0; i < labels.length; i++) {
 			intermediates[i] = createIntermediate(labels[i]);
@@ -143,7 +143,7 @@ class MethodInstrumenter extends MethodProbesVisitor {
 		return intermediates;
 	}
 
-	private Label createIntermediate(final Label label) {
+	private static Label createIntermediate(final Label label) {
 		final Label intermediate;
 		if (LabelInfo.getProbeId(label) == LabelInfo.NO_PROBE) {
 			intermediate = label;

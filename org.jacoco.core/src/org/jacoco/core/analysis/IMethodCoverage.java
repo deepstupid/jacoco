@@ -11,6 +11,12 @@
  *******************************************************************************/
 package org.jacoco.core.analysis;
 
+import com.gs.collections.api.bag.Bag;
+import com.gs.collections.api.bag.MutableBag;
+import com.gs.collections.api.list.ImmutableList;
+
+import java.util.List;
+
 /**
  * Coverage data of a single method. The name of this node is the local method
  * name.
@@ -30,5 +36,8 @@ public interface IMethodCoverage extends ISourceNode {
 	 * @return generic signature or <code>null</code>
 	 */
 	public String getSignature();
+
+	/** a bag for each unique sequence of arguments, holding all observed values input */
+	public MutableBag<ImmutableList> values();
 
 }

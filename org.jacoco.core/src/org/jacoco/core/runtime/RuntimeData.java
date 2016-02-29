@@ -186,7 +186,7 @@ public class RuntimeData {
 		// Class Id:
 		mv.visitInsn(Opcodes.DUP);
 		mv.visitInsn(Opcodes.ICONST_0);
-		mv.visitLdcInsn(Long.valueOf(classid));
+		mv.visitLdcInsn(classid);
 		mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Long", "valueOf",
 				"(J)Ljava/lang/Long;", false);
 		mv.visitInsn(Opcodes.AASTORE);

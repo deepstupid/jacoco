@@ -66,7 +66,7 @@ public class MultiReportVisitorTest {
 
 		private final String name;
 
-		private final List<MockGroupVisitor> children = new ArrayList<MockGroupVisitor>();
+		private final List<MockGroupVisitor> children = new ArrayList<>();
 
 		MockGroupVisitor(String name) {
 			this.name = name;

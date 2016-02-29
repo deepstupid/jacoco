@@ -31,11 +31,7 @@ public class SortIndexTest {
 
 	@Before
 	public void setup() {
-		index = new SortIndex<Integer>(new Comparator<Integer>() {
-			public int compare(Integer i1, Integer i2) {
-				return i1.compareTo(i2);
-			}
-		});
+		index = new SortIndex<>(Integer::compareTo);
 	}
 
 	@Test
@@ -82,7 +78,7 @@ public class SortIndexTest {
 	}
 
 	private List<Integer> createList(int length) {
-		List<Integer> list = new ArrayList<Integer>(length);
+		List<Integer> list = new ArrayList<>(length);
 		for (int i = 0; i < length; i++) {
 			list.add(Integer.valueOf(i));
 		}

@@ -174,7 +174,7 @@ public class CheckMojo extends AbstractJacocoMojo implements IViolationsOutput {
 		violations = false;
 
 		final RulesChecker checker = new RulesChecker();
-		final List<Rule> checkerrules = new ArrayList<Rule>();
+		final List<Rule> checkerrules = new ArrayList<>();
 		for (final RuleConfiguration r : rules) {
 			checkerrules.add(r.rule);
 		}

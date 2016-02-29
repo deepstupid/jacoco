@@ -45,8 +45,8 @@ public class CoverageBuilder implements ICoverageVisitor {
 	 * 
 	 */
 	public CoverageBuilder() {
-		this.classes = new HashMap<String, IClassCoverage>();
-		this.sourcefiles = new HashMap<String, ISourceFileCoverage>();
+		this.classes = new HashMap<>();
+		this.sourcefiles = new HashMap<>();
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class CoverageBuilder implements ICoverageVisitor {
 	 * @return collection of classes with non-matching execution data
 	 */
 	public Collection<IClassCoverage> getNoMatchClasses() {
-		final Collection<IClassCoverage> result = new ArrayList<IClassCoverage>();
+		final Collection<IClassCoverage> result = new ArrayList<>();
 		for (final IClassCoverage c : classes.values()) {
 			if (c.isNoMatch()) {
 				result.add(c);

@@ -40,7 +40,7 @@ public class ExecutionDataStoreTest implements IExecutionDataVisitor {
 	@Before
 	public void setup() {
 		store = new ExecutionDataStore();
-		dataOutput = new HashMap<Long, ExecutionData>();
+		dataOutput = new HashMap<>();
 	}
 
 	@Test
@@ -86,9 +86,9 @@ public class ExecutionDataStoreTest implements IExecutionDataVisitor {
 		store.put(aa);
 		final ExecutionData b = new ExecutionData(1001, "B", probes);
 		store.put(b);
-		final Set<ExecutionData> actual = new HashSet<ExecutionData>(
+		final Set<ExecutionData> actual = new HashSet<>(
 				store.getContents());
-		final Set<ExecutionData> expected = new HashSet<ExecutionData>(
+		final Set<ExecutionData> expected = new HashSet<>(
 				Arrays.asList(a, b));
 		assertEquals(expected, actual);
 	}

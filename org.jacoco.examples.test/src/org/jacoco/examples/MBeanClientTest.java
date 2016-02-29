@@ -34,7 +34,7 @@ public class MBeanClientTest {
 	}
 
 	private Set<String> getDeclaredMethods(Class<?> clazz) {
-		Set<String> methods = new HashSet<String>();
+		Set<String> methods = new HashSet<>();
 		for (Method m : clazz.getDeclaredMethods()) {
 			methods.add(String.format("%s %s(%s)", m.getReturnType().getName(),
 					m.getName(), Arrays.asList(m.getParameterTypes())));

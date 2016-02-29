@@ -35,7 +35,7 @@ import org.apache.tools.ant.UnknownElement;
  */
 public class CoverageTask extends AbstractCoverageTask implements TaskContainer {
 
-	private final Collection<TaskEnhancer> taskEnhancers = new ArrayList<TaskEnhancer>();
+	private final Collection<TaskEnhancer> taskEnhancers = new ArrayList<>();
 	private Task childTask;
 
 	/**

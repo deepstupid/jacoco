@@ -58,7 +58,7 @@ public class PackageSourcePage extends TablePage<IPackageCoverage> {
 		super(node, parent, folder, context);
 		this.locator = locator;
 		this.packagePage = packagePage;
-		this.sourceFilePages = new HashMap<String, ILinkable>();
+		this.sourceFilePages = new HashMap<>();
 	}
 
 	@Override

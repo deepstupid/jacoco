@@ -38,7 +38,7 @@ public class RulesChecker {
 	 * New formatter instance.
 	 */
 	public RulesChecker() {
-		this.rules = new ArrayList<Rule>();
+		this.rules = new ArrayList<>();
 		this.setLanguageNames(new JavaNames());
 	}
 

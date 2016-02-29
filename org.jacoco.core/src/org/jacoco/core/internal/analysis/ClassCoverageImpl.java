@@ -46,7 +46,7 @@ public class ClassCoverageImpl extends SourceNodeImpl implements IClassCoverage 
 		super(ElementType.CLASS, name);
 		this.id = id;
 		this.noMatch = noMatch;
-		this.methods = new ArrayList<IMethodCoverage>();
+		this.methods = new ArrayList<>();
 		this.classCounter = CounterImpl.COUNTER_1_0;
 	}
 

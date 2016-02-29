@@ -36,7 +36,7 @@ public class Table {
 	 * Create a new table without any columns yet.
 	 */
 	public Table() {
-		this.columns = new ArrayList<Table.Column>();
+		this.columns = new ArrayList<>();
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class Table {
 	private List<? extends ITableItem> sort(
 			final List<? extends ITableItem> items) {
 		if (defaultComparator != null) {
-			final List<ITableItem> result = new ArrayList<ITableItem>(items);
+			final List<ITableItem> result = new ArrayList<>(items);
 			Collections.sort(result, defaultComparator);
 			return result;
 		}
@@ -153,7 +153,7 @@ public class Table {
 			this.idprefix = (char) ('a' + idx);
 			this.header = header;
 			this.renderer = renderer;
-			index = new SortIndex<ITableItem>(renderer.getComparator());
+			index = new SortIndex<>(renderer.getComparator());
 			this.style = style;
 			this.headerStyle = Styles.combine(defaultSorting ? Styles.DOWN
 					: null, Styles.SORTABLE, style);

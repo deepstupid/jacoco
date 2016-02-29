@@ -166,7 +166,7 @@ public class Agent implements IAgent {
 		}
 	}
 
-	private String createSessionId() {
+	private static String createSessionId() {
 		String host;
 		try {
 			host = InetAddress.getLocalHost().getHostName();

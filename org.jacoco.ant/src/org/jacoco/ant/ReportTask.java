@@ -99,7 +99,7 @@ public class ReportTask extends Task {
 	 */
 	public static class GroupElement {
 
-		private final List<GroupElement> children = new ArrayList<GroupElement>();
+		private final List<GroupElement> children = new ArrayList<>();
 
 		private final Union classfiles = new Union();
 
@@ -151,7 +151,7 @@ public class ReportTask extends Task {
 	/**
 	 * Interface for child elements that define formatters.
 	 */
-	private abstract class FormatterElement {
+	private abstract static class FormatterElement {
 
 		abstract IReportVisitor createVisitor() throws IOException;
 
@@ -347,7 +347,7 @@ public class ReportTask extends Task {
 	public class CheckFormatterElement extends FormatterElement implements
 			IViolationsOutput {
 
-		private final List<Rule> rules = new ArrayList<Rule>();
+		private final List<Rule> rules = new ArrayList<>();
 		private boolean violations = false;
 		private boolean failOnViolation = true;
 		private String violationsPropery = null;
@@ -421,7 +421,7 @@ public class ReportTask extends Task {
 
 	private final GroupElement structure = new GroupElement();
 
-	private final List<FormatterElement> formatters = new ArrayList<FormatterElement>();
+	private final List<FormatterElement> formatters = new ArrayList<>();
 
 	/**
 	 * Returns the nested resource collection for execution data files.
@@ -525,7 +525,7 @@ public class ReportTask extends Task {
 	}
 
 	private IReportVisitor createVisitor() throws IOException {
-		final List<IReportVisitor> visitors = new ArrayList<IReportVisitor>();
+		final List<IReportVisitor> visitors = new ArrayList<>();
 		for (final FormatterElement f : formatters) {
 			visitors.add(f.createVisitor());
 		}

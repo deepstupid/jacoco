@@ -95,7 +95,7 @@ public class MultiSourceFileLocatorTest {
 
 	private static class StubLocator implements ISourceFileLocator {
 
-		private final Map<String, Reader> sources = new HashMap<String, Reader>();
+		private final Map<String, Reader> sources = new HashMap<>();
 
 		void put(String path, char content) {
 			sources.put(path, new StubReader(content));

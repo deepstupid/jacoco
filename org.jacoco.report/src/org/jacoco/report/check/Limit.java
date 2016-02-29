@@ -14,6 +14,7 @@ package org.jacoco.report.check;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +31,7 @@ public class Limit {
 	private static final Map<CounterEntity, String> ENTITY_NAMES;
 
 	static {
-		final Map<CounterValue, String> values = new HashMap<CounterValue, String>();
+		final Map<CounterValue, String> values = new EnumMap<>(CounterValue.class);
 		values.put(CounterValue.TOTALCOUNT, "total count");
 		values.put(CounterValue.MISSEDCOUNT, "missed count");
 		values.put(CounterValue.COVEREDCOUNT, "covered count");
@@ -38,7 +39,7 @@ public class Limit {
 		values.put(CounterValue.COVEREDRATIO, "covered ratio");
 		VALUE_NAMES = Collections.unmodifiableMap(values);
 
-		final Map<CounterEntity, String> entities = new HashMap<CounterEntity, String>();
+		final Map<CounterEntity, String> entities = new EnumMap<>(CounterEntity.class);
 		entities.put(CounterEntity.INSTRUCTION, "instructions");
 		entities.put(CounterEntity.BRANCH, "branches");
 		entities.put(CounterEntity.COMPLEXITY, "complexity");

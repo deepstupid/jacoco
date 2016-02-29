@@ -37,8 +37,8 @@ public class StringPoolTest {
 
 	@Test
 	public void testGetString() {
-		final String a = pool.get(new String("JaCoCo"));
-		final String b = pool.get(new String("JaCoCo"));
+		final String a = pool.get("JaCoCo");
+		final String b = pool.get("JaCoCo");
 
 		assertEquals("JaCoCo", a);
 		assertEquals("JaCoCo", b);
@@ -61,8 +61,8 @@ public class StringPoolTest {
 
 	@Test
 	public void testGetArray() {
-		final String[] arr1 = pool.get(new String[] { new String("JaCoCo") });
-		final String[] arr2 = pool.get(new String[] { new String("JaCoCo") });
+		final String[] arr1 = pool.get(new String[] {"JaCoCo"});
+		final String[] arr2 = pool.get(new String[] {"JaCoCo"});
 
 		assertEquals(1, arr1.length);
 		assertEquals("JaCoCo", arr1[0]);

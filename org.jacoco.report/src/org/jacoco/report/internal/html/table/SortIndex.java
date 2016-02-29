@@ -44,7 +44,7 @@ final class SortIndex<T> {
 
 	}
 
-	private final List<Entry> list = new ArrayList<Entry>();
+	private final List<Entry> list = new ArrayList<>();
 
 	private int[] positions;
 

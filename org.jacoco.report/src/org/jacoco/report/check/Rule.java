@@ -36,7 +36,7 @@ public final class Rule {
 	 */
 	public Rule() {
 		this.element = ElementType.BUNDLE;
-		this.limits = new ArrayList<Limit>();
+		this.limits = new ArrayList<>();
 		this.setIncludes("*");
 		this.setExcludes("");
 	}

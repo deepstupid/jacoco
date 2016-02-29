@@ -47,9 +47,9 @@ public class Source {
 	private static final Pattern TAG_PATTERN = Pattern
 			.compile("\\$line-(.*)\\$");
 
-	private final List<String> lines = new ArrayList<String>();
+	private final List<String> lines = new ArrayList<>();
 
-	private final Map<String, Integer> tags = new HashMap<String, Integer>();
+	private final Map<String, Integer> tags = new HashMap<>();
 
 	/**
 	 * Reads a source file from the given reader.

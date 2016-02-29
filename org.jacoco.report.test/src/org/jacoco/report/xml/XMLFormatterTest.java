@@ -51,8 +51,8 @@ public class XMLFormatterTest {
 		driver = new ReportStructureTestDriver();
 		formatter = new XMLFormatter();
 		output = new MemoryOutput();
-		infos = new ArrayList<SessionInfo>();
-		data = new ArrayList<ExecutionData>();
+		infos = new ArrayList<>();
+		data = new ArrayList<>();
 	}
 
 	@After

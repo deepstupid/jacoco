@@ -48,7 +48,7 @@ public class ExecDumpClientTest {
 
 	@Before
 	public void setup() {
-		callbacks = new ArrayList<String>();
+		callbacks = new ArrayList<>();
 		client = new ExecDumpClient() {
 			@Override
 			protected void onConnecting(InetAddress address, int port) {

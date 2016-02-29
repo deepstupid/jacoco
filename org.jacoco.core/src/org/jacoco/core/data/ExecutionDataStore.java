@@ -28,9 +28,9 @@ import java.util.Set;
  */
 public final class ExecutionDataStore implements IExecutionDataVisitor {
 
-	private final Map<Long, ExecutionData> entries = new HashMap<Long, ExecutionData>();
+	private final Map<Long, ExecutionData> entries = new HashMap<>();
 
-	private final Set<String> names = new HashSet<String>();
+	private final Set<String> names = new HashSet<>();
 
 	/**
 	 * Adds the given {@link ExecutionData} object into the store. If there is
@@ -155,7 +155,7 @@ public final class ExecutionDataStore implements IExecutionDataVisitor {
 	 * @return current contents
 	 */
 	public Collection<ExecutionData> getContents() {
-		return new ArrayList<ExecutionData>(entries.values());
+		return new ArrayList<>(entries.values());
 	}
 
 	/**

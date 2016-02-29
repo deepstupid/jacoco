@@ -36,7 +36,7 @@ public class MultiSourceFileLocator implements ISourceFileLocator {
 	 */
 	public MultiSourceFileLocator(final int tabWidth) {
 		this.tabWidth = tabWidth;
-		this.delegates = new ArrayList<ISourceFileLocator>();
+		this.delegates = new ArrayList<>();
 	}
 
 	/**

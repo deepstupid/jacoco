@@ -14,6 +14,8 @@ package org.jacoco.core.internal.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gs.collections.impl.factory.Lists;
+import com.gs.collections.impl.list.mutable.FastList;
 import org.jacoco.core.analysis.ICounter;
 import org.jacoco.core.analysis.IMethodCoverage;
 import org.jacoco.core.analysis.ISourceNode;
@@ -41,16 +43,16 @@ public class MethodAnalyzer extends MethodProbesVisitor {
 	private int lastLine = ISourceNode.UNKNOWN_LINE;
 
 	// Due to ASM issue #315745 there can be more than one label per instruction
-	private final List<Label> currentLabel = new ArrayList<Label>(2);
+	private final List<Label> currentLabel = new FastList<>(2);
 
 	/** List of all analyzed instructions */
-	private final List<Instruction> instructions = new ArrayList<Instruction>();
+	private final List<Instruction> instructions = new FastList<>();
 
 	/** List of all predecessors of covered probes */
-	private final List<Instruction> coveredProbes = new ArrayList<Instruction>();
+	private final List<Instruction> coveredProbes = new FastList<>();
 
 	/** List of all jumps encountered */
-	private final List<Jump> jumps = new ArrayList<Jump>();
+	private final List<Jump> jumps = new FastList<>();
 
 	/** Last instruction in byte code sequence */
 	private Instruction lastInsn;
@@ -74,6 +76,7 @@ public class MethodAnalyzer extends MethodProbesVisitor {
 		super();
 		this.probes = probes;
 		this.coverage = new MethodCoverageImpl(name, desc, signature);
+
 	}
 
 	/**
@@ -111,12 +114,13 @@ public class MethodAnalyzer extends MethodProbesVisitor {
 		if (lastInsn != null) {
 			insn.setPredecessor(lastInsn);
 		}
-		final int labelCount = currentLabel.size();
+		List<Label> label = this.currentLabel;
+		final int labelCount = label.size();
 		if (labelCount > 0) {
 			for (int i = labelCount; --i >= 0;) {
-				LabelInfo.setInstruction(currentLabel.get(i), insn);
+				LabelInfo.setInstruction(label.get(i), insn);
 			}
-			currentLabel.clear();
+			label.clear();
 		}
 		lastInsn = insn;
 	}
@@ -190,6 +194,7 @@ public class MethodAnalyzer extends MethodProbesVisitor {
 	private void visitSwitchInsn(final Label dflt, final Label[] labels) {
 		visitInsn();
 		LabelInfo.resetDone(labels);
+		List<Jump> jumps = this.jumps;
 		jumps.add(new Jump(lastInsn, dflt));
 		LabelInfo.setDone(dflt);
 		for (final Label l : labels) {
@@ -301,4 +306,13 @@ public class MethodAnalyzer extends MethodProbesVisitor {
 		}
 	}
 
+	@Override
+	public void visitFrame(int type, int nLocal, Object[] local, int nStack, Object[] stack) {
+		super.visitFrame(type, nLocal, local, nStack, stack);
+		coverage.values().add(
+				Lists.immutable.with(
+					Lists.immutable.with(local),
+					Lists.immutable.with(stack))
+		);
+	}
 }

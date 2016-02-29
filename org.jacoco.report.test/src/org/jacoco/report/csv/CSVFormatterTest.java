@@ -136,7 +136,7 @@ public class CSVFormatterTest {
 	private List<String> getLines(String encoding) throws IOException {
 		final BufferedReader reader = new BufferedReader(new InputStreamReader(
 				output.getContentsAsStream(), encoding));
-		final List<String> lines = new ArrayList<String>();
+		final List<String> lines = new ArrayList<>();
 		String line;
 		while ((line = reader.readLine()) != null) {
 			lines.add(line);

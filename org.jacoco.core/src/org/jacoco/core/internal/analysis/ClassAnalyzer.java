@@ -70,6 +70,7 @@ public class ClassAnalyzer extends ClassProbesVisitor {
 
 		return new MethodAnalyzer(stringPool.get(name), stringPool.get(desc),
 				stringPool.get(signature), probes) {
+
 			@Override
 			public void visitEnd() {
 				super.visitEnd();

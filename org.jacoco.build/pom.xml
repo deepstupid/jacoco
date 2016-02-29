@@ -134,8 +134,8 @@
     <jacoco.home.url>http://www.eclemma.org/jacoco</jacoco.home.url>
     <copyright.years>${project.inceptionYear}, 2016</copyright.years>
 
-    <maven.compiler.source>1.5</maven.compiler.source>
-    <maven.compiler.target>1.5</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
 
     <jvm.args></jvm.args>
     <argLine>${jvm.args}</argLine>
@@ -143,7 +143,7 @@
     <!-- Dependencies versions -->
     <asm.version>5.0.4</asm.version>
     <ant.version>1.7.1</ant.version>
-    <junit.version>4.8.2</junit.version>
+    <junit.version>4.11</junit.version>
 
     <!-- ================== -->
     <!-- For Sonar analysis -->
@@ -156,8 +156,8 @@
     <sonar.surefire.reportsPath>../${project.artifactId}.test/target/surefire-reports/</sonar.surefire.reportsPath>
 
     <!-- See http://jira.codehaus.org/browse/SONAR-2096 -->
-    <sonar.java.source>1.5</sonar.java.source>
-    <sonar.java.target>1.5</sonar.java.target>
+    <sonar.java.source>1.8</sonar.java.source>
+    <sonar.java.target>1.8</sonar.java.target>
   </properties>
 
   <dependencyManagement>

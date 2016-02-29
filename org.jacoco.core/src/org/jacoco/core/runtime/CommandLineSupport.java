@@ -75,9 +75,9 @@ final class CommandLineSupport {
 	 */
 	static List<String> split(final String commandline) {
 		if (commandline == null || commandline.length() == 0) {
-			return new ArrayList<String>();
+			return new ArrayList<>();
 		}
-		final List<String> args = new ArrayList<String>();
+		final List<String> args = new ArrayList<>();
 		final StringBuilder current = new StringBuilder();
 		int mode = M_STRIPWHITESPACE;
 		int endChar = BLANK;

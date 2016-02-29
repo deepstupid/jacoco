@@ -62,7 +62,7 @@ public class RuleTest {
 	public void testCreateLimit() {
 		Limit l1 = new Limit();
 		Limit l2 = new Limit();
-		rule.setLimits(new ArrayList<Limit>(Arrays.asList(l1, l2)));
+		rule.setLimits(new ArrayList<>(Arrays.asList(l1, l2)));
 		Limit l3 = rule.createLimit();
 		assertEquals(Arrays.asList(l1, l2, l3), rule.getLimits());
 	}

@@ -44,9 +44,9 @@ public class NormalizedFileNamesTest {
 	@Test
 	public void testSameInstance() {
 		// If no normalization is required we should get the same instance.
-		String id = new String("Example.html");
+		String id = "Example.html";
 		assertSame(id, nfn.getFileName(id));
-		assertSame(id, nfn.getFileName(new String("Example.html")));
+		assertSame(id, nfn.getFileName("Example.html"));
 	}
 
 	@Test

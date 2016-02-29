@@ -55,7 +55,7 @@ public class MockSocketConnection {
 
 		private boolean closed;
 
-		private final Queue<Byte> buffer = new ConcurrentLinkedQueue<Byte>();
+		private final Queue<Byte> buffer = new ConcurrentLinkedQueue<>();
 
 		private final OutputStream out = new OutputStream() {
 

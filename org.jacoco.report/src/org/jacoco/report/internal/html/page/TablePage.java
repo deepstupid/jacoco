@@ -31,7 +31,7 @@ import org.jacoco.report.internal.html.table.ITableItem;
 public abstract class TablePage<NodeType extends ICoverageNode> extends
 		NodePage<NodeType> {
 
-	private final List<ITableItem> items = new ArrayList<ITableItem>();
+	private final List<ITableItem> items = new ArrayList<>();
 
 	/**
 	 * Creates a new node page.

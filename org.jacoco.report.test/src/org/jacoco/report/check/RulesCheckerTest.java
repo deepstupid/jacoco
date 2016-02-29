@@ -39,7 +39,7 @@ public class RulesCheckerTest implements IViolationsOutput {
 	public void setup() {
 		checker = new RulesChecker();
 		driver = new ReportStructureTestDriver();
-		messages = new ArrayList<String>();
+		messages = new ArrayList<>();
 	}
 
 	@Test

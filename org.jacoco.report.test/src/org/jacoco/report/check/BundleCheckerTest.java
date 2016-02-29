@@ -45,9 +45,9 @@ public class BundleCheckerTest implements IViolationsOutput {
 
 	@Before
 	public void setup() {
-		rules = new ArrayList<Rule>();
+		rules = new ArrayList<>();
 		names = new JavaNames();
-		messages = new ArrayList<String>();
+		messages = new ArrayList<>();
 	}
 
 	@Test

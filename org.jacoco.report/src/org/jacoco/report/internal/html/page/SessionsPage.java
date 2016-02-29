@@ -74,7 +74,7 @@ public class SessionsPage extends ReportPage {
 			final ReportOutputFolder folder, final IHTMLReportContext context) {
 		super(parent, folder, context);
 		this.sessionInfos = sessionInfos;
-		this.executionData = new ArrayList<ExecutionData>(executionData);
+		this.executionData = new ArrayList<>(executionData);
 		this.index = index;
 		this.dateFormat = DateFormat.getDateTimeInstance(DateFormat.DEFAULT,
 				DateFormat.DEFAULT, context.getLocale());

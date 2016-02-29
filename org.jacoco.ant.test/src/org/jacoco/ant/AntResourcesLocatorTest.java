@@ -107,7 +107,7 @@ public class AntResourcesLocatorTest {
 
 	@Test
 	public void testAddAll() throws IOException {
-		List<Resource> resources = new ArrayList<Resource>();
+		List<Resource> resources = new ArrayList<>();
 		resources.add(createFile("org/jacoco/example/Test1.java", "AAA"));
 		resources.add(createFile("org/jacoco/example/Test2.java", "BBB"));
 		locator.addAll(resources.iterator());

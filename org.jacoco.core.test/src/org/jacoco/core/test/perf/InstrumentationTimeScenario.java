@@ -27,7 +27,7 @@ public class InstrumentationTimeScenario extends TimedScenario {
 	private final int count;
 
 	protected InstrumentationTimeScenario(Class<?> target, int count) {
-		super(String.format("instrumenting %s classes", Integer.valueOf(count)));
+		super(String.format("instrumenting %s classes", count));
 		this.target = target;
 		this.count = count;
 	}
@@ -36,14 +36,12 @@ public class InstrumentationTimeScenario extends TimedScenario {
 	protected Callable<Void> getInstrumentedCallable() throws Exception {
 		final byte[] bytes = TargetLoader.getClassDataAsBytes(target);
 		final Instrumenter instr = new Instrumenter(new LoggerRuntime());
-		return new Callable<Void>() {
-			public Void call() throws Exception {
-				for (int i = 0; i < count; i++) {
-					instr.instrument(bytes, "TestTarget");
-				}
-				return null;
-			}
-		};
+		return () -> {
+            for (int i = 0; i < count; i++) {
+                instr.instrument(bytes, "TestTarget");
+            }
+            return null;
+        };
 	}
 
 }

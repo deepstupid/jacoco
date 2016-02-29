@@ -44,7 +44,7 @@ public class MethodAnalyzerTest implements IProbeIdGenerator {
 	public void setup() {
 		nextProbeId = 0;
 		method = new MethodNode();
-		method.tryCatchBlocks = new ArrayList<TryCatchBlockNode>();
+		method.tryCatchBlocks = new ArrayList<>();
 		probes = new boolean[32];
 	}
 

@@ -40,7 +40,7 @@ public abstract class ValidationTestBase {
 
 	private static final String[] STATUS_NAME = new String[4];
 
-	{
+	static {
 		STATUS_NAME[ICounter.EMPTY] = "NO_CODE";
 		STATUS_NAME[ICounter.NOT_COVERED] = "NOT_COVERED";
 		STATUS_NAME[ICounter.FULLY_COVERED] = "FULLY_COVERED";

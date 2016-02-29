@@ -13,6 +13,8 @@ package org.jacoco.report.csv;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Helper class for writing out CSV or tab delimited files.
@@ -37,6 +39,7 @@ class DelimitedWriter {
 
 	private static final char DEFAULT_DELIMITER = ',';
 	private static final String NEW_LINE = System.getProperty("line.separator");
+	private static final Pattern COMPILE = Pattern.compile(QUOTE, Pattern.LITERAL);
 	private final char delimiter;
 	private final Writer delegate;
 	private int fieldPosition = 0;
@@ -160,8 +163,8 @@ class DelimitedWriter {
 
 		// Escape and quote if the source value contains the delimiter
 		// or the quote character
-		if (value.indexOf(QUOTE) != -1 || value.indexOf(delimiter) != -1) {
-			escapedValue = value.replace(QUOTE, ESCAPED_QUOTE);
+		if (value.contains(QUOTE) || value.indexOf(delimiter) != -1) {
+			escapedValue = COMPILE.matcher(value).replaceAll(Matcher.quoteReplacement(ESCAPED_QUOTE));
 			escapedValue = QUOTE + escapedValue + QUOTE;
 		}
 

@@ -25,13 +25,13 @@ public class JavaNames implements ILanguageNames {
 		return vmname.replace('/', '.');
 	}
 
-	private String getClassName(final String vmname) {
+	private static String getClassName(final String vmname) {
 		final int pos = vmname.lastIndexOf('/');
 		final String name = pos == -1 ? vmname : vmname.substring(pos + 1);
 		return name.replace('$', '.');
 	}
 
-	private boolean isAnonymous(final String vmname) {
+	private static boolean isAnonymous(final String vmname) {
 		final int dollarPosition = vmname.lastIndexOf('$');
 		if (dollarPosition == -1) {
 			return false;
@@ -122,7 +122,7 @@ public class JavaNames implements ILanguageNames {
 		return result.toString();
 	}
 
-	private String getShortTypeName(final Type type) {
+	private static String getShortTypeName(final Type type) {
 		final String name = type.getClassName();
 		final int pos = name.lastIndexOf('.');
 		final String shortName = pos == -1 ? name : name.substring(pos + 1);

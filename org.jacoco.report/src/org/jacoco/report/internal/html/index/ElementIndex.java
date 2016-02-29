@@ -25,7 +25,7 @@ public class ElementIndex implements IIndexUpdate {
 
 	private final ReportOutputFolder baseFolder;
 
-	private final Map<Long, String> allClasses = new HashMap<Long, String>();
+	private final Map<Long, String> allClasses = new HashMap<>();
 
 	/**
 	 * Creates a new empty index for a HTML report.

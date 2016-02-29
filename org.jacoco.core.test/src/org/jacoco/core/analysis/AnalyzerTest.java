@@ -36,6 +36,9 @@ import java.util.zip.ZipOutputStream;
 import org.jacoco.core.data.ExecutionDataStore;
 import org.jacoco.core.internal.data.CRC64;
 import org.jacoco.core.test.TargetLoader;
+/*import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;*/
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -70,7 +73,7 @@ public class AnalyzerTest {
 
 	@Before
 	public void setup() {
-		classes = new HashMap<String, IClassCoverage>();
+		classes = new HashMap<>();
 		executionData = new ExecutionDataStore();
 		analyzer = new Analyzer(executionData, new EmptyStructureVisitor());
 	}
@@ -121,6 +124,7 @@ public class AnalyzerTest {
 				.getClassDataAsBytes(AnalyzerTest.class);
 		brokenclass[10] = 0x23;
 		analyzer.analyzeClass(brokenclass, "Broken.class");
+
 	}
 
 	@Test
@@ -246,7 +250,7 @@ public class AnalyzerTest {
 	}
 
 	private void assertClasses(String... classNames) {
-		assertEquals(new HashSet<String>(Arrays.asList(classNames)),
+		assertEquals(new HashSet<>(Arrays.asList(classNames)),
 				classes.keySet());
 	}
 

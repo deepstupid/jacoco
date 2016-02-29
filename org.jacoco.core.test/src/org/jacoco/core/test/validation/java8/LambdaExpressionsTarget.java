@@ -11,6 +11,8 @@
  *******************************************************************************/
 package org.jacoco.core.test.validation.java8;
 
+import org.jacoco.core.test.validation.targets.Stubs;
+
 import static org.jacoco.core.test.validation.targets.Stubs.exec;
 import static org.jacoco.core.test.validation.targets.Stubs.noexec;
 import static org.jacoco.core.test.validation.targets.Stubs.nop;
@@ -22,15 +24,15 @@ public class LambdaExpressionsTarget implements Runnable {
 
 	@Override
 	public void run() {
-		
+
 		exec(() -> {
 			nop(); // $line-executedlambdabody$
 		});
-		
+
 		noexec(() -> {
 			nop(); // $line-notexecutedlambdabody$
 		});
-		
+
 	}
 
 	public static void main(String[] args) {

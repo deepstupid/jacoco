@@ -27,7 +27,7 @@ public final class StringPool {
 
 	private static final String[] EMPTY_ARRAY = new String[0];
 
-	private final Map<String, String> pool = new HashMap<String, String>(1024);
+	private final Map<String, String> pool = new HashMap<>(1024);
 
 	/**
 	 * Returns a normalized instance that is equal to the given {@link String} .

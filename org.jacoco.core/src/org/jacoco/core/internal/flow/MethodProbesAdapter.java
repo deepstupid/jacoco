@@ -47,7 +47,7 @@ public final class MethodProbesAdapter extends MethodVisitor {
 		super(JaCoCo.ASM_API_VERSION, probesVisitor);
 		this.probesVisitor = probesVisitor;
 		this.idGenerator = idGenerator;
-		this.tryCatchProbeLabels = new HashMap<Label, Label>();
+		this.tryCatchProbeLabels = new HashMap<>();
 	}
 
 	/**

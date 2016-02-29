@@ -85,12 +85,8 @@ public class SessionInfoStoreTest {
 		store.visitSessionInfo(b);
 		final SessionInfo c = new SessionInfo("C", 12345, 600000);
 		store.visitSessionInfo(c);
-		final List<SessionInfo> actual = new ArrayList<SessionInfo>();
-		store.accept(new ISessionInfoVisitor() {
-			public void visitSessionInfo(SessionInfo info) {
-				actual.add(info);
-			}
-		});
+		final List<SessionInfo> actual = new ArrayList<>();
+		store.accept(actual::add);
 		assertEquals(Arrays.asList(b, a, c), actual);
 	}
 

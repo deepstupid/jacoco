@@ -31,7 +31,7 @@ public class ReportOutputFolder {
 	private final String path;
 
 	/** Cached sub-folder instances to guarantee stable normalization */
-	private final Map<String, ReportOutputFolder> subFolders = new HashMap<String, ReportOutputFolder>();
+	private final Map<String, ReportOutputFolder> subFolders = new HashMap<>();
 
 	private final NormalizedFileNames fileNames;
 
@@ -116,7 +116,7 @@ public class ReportOutputFolder {
 		if (this == folder) {
 			return true;
 		}
-		return folder.parent == null ? false : isAncestorOf(folder.parent);
+		return folder.parent != null && isAncestorOf(folder.parent);
 	}
 
 	private String normalize(final String name) {

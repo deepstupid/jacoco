@@ -108,7 +108,7 @@ public class ZipMultiReportOutputTest {
 
 		final Map<String, byte[]> entries = readEntries();
 		assertEquals(
-				new HashSet<String>(Arrays.asList("dir/index.html",
+				new HashSet<>(Arrays.asList("dir/index.html",
 						"readme.txt")), entries.keySet());
 		assertArrayEquals(content1, entries.get("dir/index.html"));
 		assertArrayEquals(content2, entries.get("readme.txt"));
@@ -130,7 +130,7 @@ public class ZipMultiReportOutputTest {
 
 		final Map<String, byte[]> entries = readEntries();
 		assertEquals(
-				new HashSet<String>(Arrays.asList("dir/index.html",
+				new HashSet<>(Arrays.asList("dir/index.html",
 						"readme.txt")), entries.keySet());
 		assertArrayEquals(content1, entries.get("dir/index.html"));
 		assertArrayEquals(content2, entries.get("readme.txt"));
@@ -172,7 +172,7 @@ public class ZipMultiReportOutputTest {
 	}
 
 	private Map<String, byte[]> readEntries() throws IOException {
-		final Map<String, byte[]> entries = new HashMap<String, byte[]>();
+		final Map<String, byte[]> entries = new HashMap<>();
 		final byte[] bytes = buffer.toByteArray();
 		final ZipInputStream input = new ZipInputStream(
 				new ByteArrayInputStream(bytes));

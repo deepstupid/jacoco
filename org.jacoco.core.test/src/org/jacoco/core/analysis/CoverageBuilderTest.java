@@ -71,6 +71,7 @@ public class CoverageBuilderTest {
 		assertEquals(0, m.getMethodCounter().getCoveredCount());
 		assertEquals(3, m.getLineCounter().getTotalCount());
 		assertEquals(0, m.getLineCounter().getCoveredCount());
+
 	}
 
 	@Test
@@ -207,7 +208,7 @@ public class CoverageBuilderTest {
 
 		final Collection<IPackageCoverage> packages = bundle.getPackages();
 		assertEquals(2, packages.size());
-		Map<String, IPackageCoverage> packagesByName = new HashMap<String, IPackageCoverage>();
+		Map<String, IPackageCoverage> packagesByName = new HashMap<>();
 		for (IPackageCoverage p : packages) {
 			packagesByName.put(p.getName(), p);
 		}
@@ -215,7 +216,7 @@ public class CoverageBuilderTest {
 		IPackageCoverage p1 = packagesByName.get("org/jacoco/examples");
 		assertNotNull(p1);
 		assertEquals(
-				new HashSet<String>(Arrays.asList(
+				new HashSet<>(Arrays.asList(
 						"org/jacoco/examples/Sample1",
 						"org/jacoco/examples/Sample2")),
 				getNames(p1.getClasses()));
@@ -241,14 +242,14 @@ public class CoverageBuilderTest {
 		addClass(3, false, "Sample3", null, m);
 
 		final Set<String> actual = getNames(coverageBuilder.getNoMatchClasses());
-		final Set<String> expected = new HashSet<String>(Arrays.asList(
+		final Set<String> expected = new HashSet<>(Arrays.asList(
 				"Sample1", "Sample2"));
 
 		assertEquals(expected, actual);
 	}
 
 	private Set<String> getNames(Collection<? extends ICoverageNode> nodes) {
-		Set<String> result = new HashSet<String>();
+		Set<String> result = new HashSet<>();
 		for (ICoverageNode n : nodes) {
 			result.add(n.getName());
 		}

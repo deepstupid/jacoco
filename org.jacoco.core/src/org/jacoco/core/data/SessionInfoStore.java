@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class SessionInfoStore implements ISessionInfoVisitor {
 
-	private final List<SessionInfo> infos = new ArrayList<SessionInfo>();
+	private final List<SessionInfo> infos = new ArrayList<>();
 
 	/**
 	 * Tests whether the store is empty.
@@ -43,7 +43,7 @@ public class SessionInfoStore implements ISessionInfoVisitor {
 	 * @return list of stored {@link SessionInfo} objects
 	 */
 	public List<SessionInfo> getInfos() {
-		final List<SessionInfo> copy = new ArrayList<SessionInfo>(infos);
+		final List<SessionInfo> copy = new ArrayList<>(infos);
 		Collections.sort(copy);
 		return copy;
 	}

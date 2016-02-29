@@ -102,6 +102,7 @@ public class SignatureRemover {
 	}
 
 	private void filterManifestEntryAttributes(final Attributes attrs) {
+		
 		for (final Iterator<Object> i = attrs.keySet().iterator(); i.hasNext();) {
 			if (String.valueOf(i.next()).endsWith(DIGEST_SUFFIX)) {
 				i.remove();

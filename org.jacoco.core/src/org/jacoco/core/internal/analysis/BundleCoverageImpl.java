@@ -68,21 +68,21 @@ public class BundleCoverageImpl extends CoverageNodeImpl implements
 	private static Collection<IPackageCoverage> groupByPackage(
 			final Collection<IClassCoverage> classes,
 			final Collection<ISourceFileCoverage> sourcefiles) {
-		final Map<String, Collection<IClassCoverage>> classesByPackage = new HashMap<String, Collection<IClassCoverage>>();
+		final Map<String, Collection<IClassCoverage>> classesByPackage = new HashMap<>();
 		for (final IClassCoverage c : classes) {
 			addByName(classesByPackage, c.getPackageName(), c);
 		}
 
-		final Map<String, Collection<ISourceFileCoverage>> sourceFilesByPackage = new HashMap<String, Collection<ISourceFileCoverage>>();
+		final Map<String, Collection<ISourceFileCoverage>> sourceFilesByPackage = new HashMap<>();
 		for (final ISourceFileCoverage s : sourcefiles) {
 			addByName(sourceFilesByPackage, s.getPackageName(), s);
 		}
 
-		final Set<String> packageNames = new HashSet<String>();
+		final Set<String> packageNames = new HashSet<>();
 		packageNames.addAll(classesByPackage.keySet());
 		packageNames.addAll(sourceFilesByPackage.keySet());
 
-		final Collection<IPackageCoverage> result = new ArrayList<IPackageCoverage>();
+		final Collection<IPackageCoverage> result = new ArrayList<>();
 		for (final String name : packageNames) {
 			Collection<IClassCoverage> c = classesByPackage.get(name);
 			if (c == null) {
@@ -101,7 +101,7 @@ public class BundleCoverageImpl extends CoverageNodeImpl implements
 			final String name, final T value) {
 		Collection<T> list = map.get(name);
 		if (list == null) {
-			list = new ArrayList<T>();
+			list = new ArrayList<>();
 			map.put(name, list);
 		}
 		list.add(value);

@@ -30,7 +30,7 @@ class AntFilesLocator extends InputStreamSourceFileLocator {
 	public AntFilesLocator(final String encoding,
 			final int tabWidth) {
 		super(encoding, tabWidth);
-		this.resources = new HashMap<String, Resource>();
+		this.resources = new HashMap<>();
 	}
 
 	/**

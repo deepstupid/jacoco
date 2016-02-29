@@ -27,7 +27,7 @@ import org.junit.Test;
 
 public class InputStreamSourceFileLocatorTest {
 
-	private Map<String, byte[]> sources = new HashMap<String, byte[]>();
+	private Map<String, byte[]> sources = new HashMap<>();
 
 	class TestLocator extends InputStreamSourceFileLocator {
 

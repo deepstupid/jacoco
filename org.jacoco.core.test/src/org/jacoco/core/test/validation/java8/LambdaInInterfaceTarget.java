@@ -11,6 +11,8 @@
  *******************************************************************************/
 package org.jacoco.core.test.validation.java8;
 
+import org.jacoco.core.test.validation.targets.Stubs;
+
 import static org.jacoco.core.test.validation.targets.Stubs.nop;
 
 /**

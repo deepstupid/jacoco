@@ -77,7 +77,7 @@ public class RemoteControlReaderWriterTest extends
 		reader.setRemoteCommandVisitor(new IRemoteCommandVisitor() {
 
 			public void visitDumpCommand(boolean dump, boolean reset) {
-				calls.append("cmd(" + dump + "," + reset + ")");
+				calls.append("cmd(").append(dump).append(",").append(reset).append(")");
 			}
 		});
 		assertFalse(reader.read());

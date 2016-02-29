@@ -26,7 +26,7 @@ public class TargetLoader extends ClassLoader {
 
 	public TargetLoader() {
 		super(TargetLoader.class.getClassLoader());
-		this.classes = new HashMap<String, byte[]>();
+		this.classes = new HashMap<>();
 	}
 
 	public Class<?> add(final String name, final byte[] bytes) {

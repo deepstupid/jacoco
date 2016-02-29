@@ -138,7 +138,7 @@ public class StructuredLockingTest {
 
 		public LockFrame(final int nLocals, final int nStack) {
 			super(nLocals, nStack);
-			locks = new HashSet<Integer>();
+			locks = new HashSet<>();
 		}
 
 		public LockFrame(Frame<? extends BasicValue> src) {
@@ -147,7 +147,7 @@ public class StructuredLockingTest {
 
 		@Override
 		public Frame<BasicValue> init(Frame<? extends BasicValue> src) {
-			locks = new HashSet<Integer>(((LockFrame) src).locks);
+			locks = new HashSet<>(((LockFrame) src).locks);
 			return super.init(src);
 		}
 

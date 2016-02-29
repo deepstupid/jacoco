@@ -24,7 +24,7 @@ import org.jacoco.core.data.SessionInfo;
 
 class TestStorage implements IExecutionDataVisitor, ISessionInfoVisitor {
 
-	private final Map<Long, ExecutionData> data = new HashMap<Long, ExecutionData>();
+	private final Map<Long, ExecutionData> data = new HashMap<>();
 
 	private SessionInfo info;
 

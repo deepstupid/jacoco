@@ -148,7 +148,7 @@ public class Analyzer {
 		}
 	}
 
-	private IOException analyzerError(final String location,
+	private static IOException analyzerError(final String location,
 			final RuntimeException cause) {
 		final IOException ex = new IOException(String.format(
 				"Error while analyzing %s.", location));
