@@ -1,5 +1,11 @@
-JaCoCo Java Code Coverage Library
-=================================
+JaJaCoCo Java Code Coverage Library
+===================================
+
+
+A fork of JACOCO with UNAUTHORIZED ADDITIONAL ANALYSIS FEATURES
+-------------------------------------------------------------
+
+
 
 [![Build Status](https://travis-ci.org/jacoco/jacoco.svg?branch=master)](https://travis-ci.org/jacoco/jacoco)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jacoco/org.jacoco.core/badge.svg?style=flat)](http://search.maven.org/#search|ga|1|g%3Aorg.jacoco)
